@@ -45,6 +45,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   PlatOrderDetailPartConsignVo.JSON_PROPERTY_SKU_ID,
   PlatOrderDetailPartConsignVo.JSON_PROPERTY_ADJUST_PRICE_AMOUNT,
   PlatOrderDetailPartConsignVo.JSON_PROPERTY_COMMODITY_DESC,
+  PlatOrderDetailPartConsignVo.JSON_PROPERTY_PRODUCT_TYPE,
   PlatOrderDetailPartConsignVo.JSON_PROPERTY_COMMODITY_IMAGE,
   PlatOrderDetailPartConsignVo.JSON_PROPERTY_PAGE_ONLINE_URL,
   PlatOrderDetailPartConsignVo.JSON_PROPERTY_SPEC_NUM_LIST,
@@ -130,6 +131,9 @@ public class PlatOrderDetailPartConsignVo {
 
   public static final String JSON_PROPERTY_COMMODITY_DESC = "commodityDesc";
   private String commodityDesc;
+
+  public static final String JSON_PROPERTY_PRODUCT_TYPE = "productType";
+  private Integer productType;
 
   public static final String JSON_PROPERTY_COMMODITY_IMAGE = "commodityImage";
   private String commodityImage;
@@ -667,6 +671,18 @@ public class PlatOrderDetailPartConsignVo {
     this.commodityDesc = commodityDesc;
   }
 
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PRODUCT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getProductType() {
+    return productType;
+  }
+  @JsonProperty(JSON_PROPERTY_PRODUCT_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProductType(Integer productType) {
+    this.productType = productType;
+  }
 
   public PlatOrderDetailPartConsignVo commodityImage(String commodityImage) {
     
