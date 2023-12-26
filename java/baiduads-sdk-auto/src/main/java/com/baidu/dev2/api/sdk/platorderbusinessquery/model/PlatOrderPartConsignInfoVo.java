@@ -48,6 +48,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_REFUND_ID,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_ORDER_TYPE,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_CREATE_TIME,
+  PlatOrderPartConsignInfoVo.JSON_PROPERTY_UPDATE_TIME,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_ORDER_STATUS,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_ORDER_STATUS_TEXT,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_RECEIVER,
@@ -127,6 +128,9 @@ public class PlatOrderPartConsignInfoVo {
 
   public static final String JSON_PROPERTY_CREATE_TIME = "createTime";
   private String createTime;
+
+  public static final String JSON_PROPERTY_UPDATE_TIME = "updateTime";
+  private String updateTime;
 
   public static final String JSON_PROPERTY_ORDER_STATUS = "orderStatus";
   private Integer orderStatus;
@@ -683,6 +687,13 @@ public class PlatOrderPartConsignInfoVo {
     return createTime;
   }
 
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_UPDATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUpdateTime() {
+    return updateTime;
+  }
 
   @JsonProperty(JSON_PROPERTY_CREATE_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -690,6 +701,11 @@ public class PlatOrderPartConsignInfoVo {
     this.createTime = createTime;
   }
 
+  @JsonProperty(JSON_PROPERTY_UPDATE_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
 
   public PlatOrderPartConsignInfoVo orderStatus(Integer orderStatus) {
     
