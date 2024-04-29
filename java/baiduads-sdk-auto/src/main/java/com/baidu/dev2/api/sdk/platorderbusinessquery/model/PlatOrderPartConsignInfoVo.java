@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_PLAT_PROMOTION_DISCOUNT_AMOUNT,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_BIZ_PROMOTION_DISCOUNT_AMOUNT,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_ORDER_DETAIL_NEW,
+        PlatOrderPartConsignInfoVo.JSON_PROPERTY_ORDER_PACKAGE_INFOS,
+
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_PART_CONSIGN,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_PRODUCT_TOTAL_AMOUNT,
   PlatOrderPartConsignInfoVo.JSON_PROPERTY_PLAT_RED_PACKET_DISCOUNT_AMOUNT,
@@ -98,6 +100,9 @@ public class PlatOrderPartConsignInfoVo {
 
   public static final String JSON_PROPERTY_ORDER_DETAIL_NEW = "orderDetailNew";
   private List<PlatOrderDetailPartConsignVo> orderDetailNew = null;
+
+  public static final String JSON_PROPERTY_ORDER_PACKAGE_INFOS = "orderPackageInfos";
+  private List<PlatOrderDetailPartConsignVo> orderPackageInfos = null;
 
   public static final String JSON_PROPERTY_PART_CONSIGN = "partConsign";
   private Integer partConsign;
@@ -396,6 +401,12 @@ public class PlatOrderPartConsignInfoVo {
     return this;
   }
 
+  public PlatOrderPartConsignInfoVo orderPackageInfos(List<PlatOrderDetailPartConsignVo> orderPackageInfos) {
+
+    this.orderPackageInfos = orderPackageInfos;
+    return this;
+  }
+
   public PlatOrderPartConsignInfoVo addOrderDetailNewItem(PlatOrderDetailPartConsignVo orderDetailNewItem) {
     if (this.orderDetailNew == null) {
       this.orderDetailNew = new ArrayList<>();
@@ -404,10 +415,33 @@ public class PlatOrderPartConsignInfoVo {
     return this;
   }
 
-   /**
+  public PlatOrderPartConsignInfoVo addOrderPackageInfos(PlatOrderDetailPartConsignVo orderPackageInfos) {
+    if (this.orderPackageInfos == null) {
+      this.orderPackageInfos = new ArrayList<>();
+    }
+    this.orderPackageInfos.add(orderPackageInfos);
+    return this;
+  }
+
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ORDER_PACKAGE_INFOS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<PlatOrderDetailPartConsignVo> getOrderPackageInfos() {
+    return orderPackageInfos;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ORDER_DETAIL_NEW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOrderPackageInfos(List<PlatOrderDetailPartConsignVo> orderPackageInfos) {
+    this.orderPackageInfos = orderPackageInfos;
+  }
+  /**
    * Get orderDetailNew
    * @return orderDetailNew
-  **/
+   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER_DETAIL_NEW)
@@ -1318,6 +1352,8 @@ public class PlatOrderPartConsignInfoVo {
         Objects.equals(this.platPromotionDiscountAmount, platOrderPartConsignInfoVo.platPromotionDiscountAmount) &&
         Objects.equals(this.bizPromotionDiscountAmount, platOrderPartConsignInfoVo.bizPromotionDiscountAmount) &&
         Objects.equals(this.orderDetailNew, platOrderPartConsignInfoVo.orderDetailNew) &&
+        Objects.equals(this.orderPackageInfos, platOrderPartConsignInfoVo.orderPackageInfos) &&
+
         Objects.equals(this.partConsign, platOrderPartConsignInfoVo.partConsign) &&
         Objects.equals(this.productTotalAmount, platOrderPartConsignInfoVo.productTotalAmount) &&
         Objects.equals(this.platRedPacketDiscountAmount, platOrderPartConsignInfoVo.platRedPacketDiscountAmount) &&
@@ -1354,7 +1390,7 @@ public class PlatOrderPartConsignInfoVo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderTotalAmount, paymentAmount, freightAmount, platCouponDiscountAmount, bizCouponDiscountAmount, platPromotionDiscountAmount, bizPromotionDiscountAmount, orderDetailNew, partConsign, productTotalAmount, platRedPacketDiscountAmount, duePayTime, adjustPriceAmount, orderPayTime, orderId, refundId, orderType, createTime, orderStatus, orderStatusText, receiver, receiverMobile, receiverAddress, message, remark, expressInfo, trackingNumber, expressName, consignTime, ucId, expressStatus, expressStatusText, orderTypeText, clickTypeText, provinceName, cityName, areaName, townName, address, appId);
+    return Objects.hash(orderTotalAmount, paymentAmount, freightAmount, platCouponDiscountAmount, bizCouponDiscountAmount, platPromotionDiscountAmount, bizPromotionDiscountAmount, orderDetailNew, orderPackageInfos, partConsign, productTotalAmount, platRedPacketDiscountAmount, duePayTime, adjustPriceAmount, orderPayTime, orderId, refundId, orderType, createTime, orderStatus, orderStatusText, receiver, receiverMobile, receiverAddress, message, remark, expressInfo, trackingNumber, expressName, consignTime, ucId, expressStatus, expressStatusText, orderTypeText, clickTypeText, provinceName, cityName, areaName, townName, address, appId);
   }
 
   @Override
@@ -1369,6 +1405,7 @@ public class PlatOrderPartConsignInfoVo {
     sb.append("    platPromotionDiscountAmount: ").append(toIndentedString(platPromotionDiscountAmount)).append("\n");
     sb.append("    bizPromotionDiscountAmount: ").append(toIndentedString(bizPromotionDiscountAmount)).append("\n");
     sb.append("    orderDetailNew: ").append(toIndentedString(orderDetailNew)).append("\n");
+    sb.append("    orderPackageInfos: ").append(toIndentedString(orderPackageInfos)).append("\n");
     sb.append("    partConsign: ").append(toIndentedString(partConsign)).append("\n");
     sb.append("    productTotalAmount: ").append(toIndentedString(productTotalAmount)).append("\n");
     sb.append("    platRedPacketDiscountAmount: ").append(toIndentedString(platRedPacketDiscountAmount)).append("\n");
